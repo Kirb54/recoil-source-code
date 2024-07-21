@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7nlsn5krpas7"
+path="res://.godot/imported/firedeath.mp3-68bae74a80e99fafff16d5f8ae46716f.mp3str"
+
+[deps]
+
+source_file="res://actuall sfx/firedeath.mp3"
+dest_files=["res://.godot/imported/firedeath.mp3-68bae74a80e99fafff16d5f8ae46716f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
