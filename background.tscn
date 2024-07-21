@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://h6sxjw10k77r"]
+
+[ext_resource type="Texture2D" uid="uid://ddkx20b10hcts" path="res://assets/Purple.png" id="1_6wyt4"]
+
+[node name="background" type="ParallaxBackground"]
+scroll_offset = Vector2(481.823, -127.618)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1308, 768)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(756, 433)
+scale = Vector2(23.5156, 13.4766)
+texture = ExtResource("1_6wyt4")

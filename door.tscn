@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://twar4t67k6bj"]
+
+[ext_resource type="Script" path="res://door.gd" id="1_a1tvf"]
+[ext_resource type="Texture2D" uid="uid://cnq8jp2tu8rwb" path="res://assets/door.png" id="1_rlaxi"]
+[ext_resource type="FontFile" uid="uid://bo0gqf1e7snq4" path="res://assets/PublicPixel-z84yD.ttf" id="3_bdq7u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45n4b"]
+size = Vector2(22, 40)
+
+[sub_resource type="Curve" id="Curve_4ja41"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.988166, 0.274725), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="door" type="Area2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+script = ExtResource("1_a1tvf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rlaxi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_45n4b")
+
+[node name="cleartext" type="Label" parent="."]
+offset_left = -46.0
+offset_top = -45.0
+offset_right = 50.0
+offset_bottom = -22.0
+theme_override_fonts/font = ExtResource("3_bdq7u")
+text = "CLEAR!"
+
+[node name="cleartimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 36
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 125.53
+initial_velocity_max = 200.0
+scale_amount_min = 10.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_4ja41")
+color = Color(0.466667, 0.235294, 0.117647, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

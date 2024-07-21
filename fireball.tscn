@@ -1,0 +1,97 @@
+[gd_scene load_steps=14 format=3 uid="uid://b42arkkie6k5n"]
+
+[ext_resource type="Texture2D" uid="uid://brt6oniai5ij7" path="res://assets/Wizard.png" id="1_fp4mj"]
+[ext_resource type="Script" path="res://fireball.gd" id="1_qsdse"]
+[ext_resource type="AudioStream" uid="uid://7nlsn5krpas7" path="res://actuall sfx/firedeath.mp3" id="2_yarxw"]
+[ext_resource type="AudioStream" uid="uid://8n7ff4kim3tb" path="res://actuall sfx/fireup.mp3" id="3_lvens"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q75d1"]
+atlas = ExtResource("1_fp4mj")
+region = Rect2(400, 700, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq8g8"]
+atlas = ExtResource("1_fp4mj")
+region = Rect2(500, 700, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag8rp"]
+atlas = ExtResource("1_fp4mj")
+region = Rect2(600, 700, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwy7w"]
+atlas = ExtResource("1_fp4mj")
+region = Rect2(0, 700, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fkuj"]
+atlas = ExtResource("1_fp4mj")
+region = Rect2(100, 700, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h51j4"]
+atlas = ExtResource("1_fp4mj")
+region = Rect2(200, 700, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bjja"]
+atlas = ExtResource("1_fp4mj")
+region = Rect2(300, 700, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wwmd5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q75d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq8g8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ag8rp")
+}],
+"loop": false,
+"name": &"blownup",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwy7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fkuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h51j4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bjja")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bngj6"]
+radius = 15.0
+height = 32.0
+
+[node name="fireball" type="CharacterBody2D" groups=["fireball"]]
+texture_filter = 1
+script = ExtResource("1_qsdse")
+firedeathsfx = ExtResource("2_yarxw")
+fireupsfx = ExtResource("3_lvens")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-14, -5)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_wwmd5")
+animation = &"fire"
+
+[node name="Area2D" type="Area2D" parent="." groups=["fireball"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6, 0)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_bngj6")
+
+[node name="blowuptimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

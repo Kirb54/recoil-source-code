@@ -1,0 +1,114 @@
+[gd_scene load_steps=4 format=3 uid="uid://8o4dqewerw4a"]
+
+[ext_resource type="Texture2D" uid="uid://ddkx20b10hcts" path="res://assets/Purple.png" id="1_5c61d"]
+[ext_resource type="Script" path="res://lvl_select.gd" id="1_s35d0"]
+[ext_resource type="Theme" uid="uid://5uind35wokm0" path="res://buttontheme.tres" id="2_03ll4"]
+
+[node name="lvl select" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_s35d0")
+
+[node name="Purple" type="Sprite2D" parent="."]
+position = Vector2(582, 336)
+scale = Vector2(18.4766, 10.8047)
+texture = ExtResource("1_5c61d")
+
+[node name="one" type="Button" parent="."]
+offset_left = 192.0
+offset_top = 182.0
+offset_right = 242.0
+offset_bottom = 232.0
+theme = ExtResource("2_03ll4")
+text = "1"
+
+[node name="two" type="Button" parent="."]
+offset_left = 258.0
+offset_top = 183.0
+offset_right = 308.0
+offset_bottom = 233.0
+theme = ExtResource("2_03ll4")
+text = "2"
+
+[node name="three" type="Button" parent="."]
+offset_left = 327.0
+offset_top = 184.0
+offset_right = 377.0
+offset_bottom = 234.0
+theme = ExtResource("2_03ll4")
+text = "3"
+
+[node name="four" type="Button" parent="."]
+offset_left = 400.0
+offset_top = 184.0
+offset_right = 450.0
+offset_bottom = 234.0
+theme = ExtResource("2_03ll4")
+text = "4"
+
+[node name="five" type="Button" parent="."]
+offset_left = 475.0
+offset_top = 184.0
+offset_right = 525.0
+offset_bottom = 234.0
+theme = ExtResource("2_03ll4")
+text = "5"
+
+[node name="six" type="Button" parent="."]
+offset_left = 547.0
+offset_top = 184.0
+offset_right = 597.0
+offset_bottom = 234.0
+theme = ExtResource("2_03ll4")
+text = "6"
+
+[node name="seven" type="Button" parent="."]
+offset_left = 619.0
+offset_top = 184.0
+offset_right = 669.0
+offset_bottom = 234.0
+theme = ExtResource("2_03ll4")
+text = "7"
+
+[node name="eight" type="Button" parent="."]
+offset_left = 690.0
+offset_top = 184.0
+offset_right = 740.0
+offset_bottom = 234.0
+theme = ExtResource("2_03ll4")
+text = "8"
+
+[node name="nine" type="Button" parent="."]
+offset_left = 761.0
+offset_top = 184.0
+offset_right = 811.0
+offset_bottom = 234.0
+theme = ExtResource("2_03ll4")
+text = "9"
+
+[node name="ten" type="Button" parent="."]
+offset_left = 833.0
+offset_top = 184.0
+offset_right = 883.0
+offset_bottom = 234.0
+theme = ExtResource("2_03ll4")
+text = "10"
+
+[node name="back" type="Button" parent="."]
+offset_left = 486.0
+offset_top = 345.0
+offset_right = 607.0
+offset_bottom = 401.0
+theme = ExtResource("2_03ll4")
+text = "Back"
+
+[connection signal="pressed" from="one" to="." method="_on_one_pressed"]
+[connection signal="pressed" from="two" to="." method="_on_two_pressed"]
+[connection signal="pressed" from="three" to="." method="_on_three_pressed"]
+[connection signal="pressed" from="four" to="." method="_on_four_pressed"]
+[connection signal="pressed" from="five" to="." method="_on_five_pressed"]
+[connection signal="pressed" from="six" to="." method="_on_six_pressed"]
+[connection signal="pressed" from="seven" to="." method="_on_seven_pressed"]
+[connection signal="pressed" from="eight" to="." method="_on_eight_pressed"]
+[connection signal="pressed" from="nine" to="." method="_on_nine_pressed"]
+[connection signal="pressed" from="ten" to="." method="_on_ten_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

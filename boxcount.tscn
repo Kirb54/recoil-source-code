@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://br2f8no1hfmer"]
+
+[ext_resource type="Script" path="res://boxcount.gd" id="1_kml61"]
+[ext_resource type="FontFile" uid="uid://bo0gqf1e7snq4" path="res://assets/PublicPixel-z84yD.ttf" id="2_48any"]
+
+[node name="boxcount" type="CanvasLayer"]
+script = ExtResource("1_kml61")
+
+[node name="boxlabel" type="Label" parent="."]
+offset_left = 497.0
+offset_top = 5.0
+offset_right = 677.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("2_48any")
+theme_override_font_sizes/font_size = 20
+text = "0/0 Boxes"

@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://betoubmole0fh"]
+
+[ext_resource type="Texture2D" uid="uid://ddkx20b10hcts" path="res://assets/Purple.png" id="1_i0xnx"]
+[ext_resource type="Script" path="res://startgame.gd" id="1_lw6q1"]
+[ext_resource type="FontFile" uid="uid://bo0gqf1e7snq4" path="res://assets/PublicPixel-z84yD.ttf" id="2_11las"]
+[ext_resource type="Theme" uid="uid://5uind35wokm0" path="res://buttontheme.tres" id="4_hw00m"]
+[ext_resource type="Texture2D" uid="uid://c6w7m5h8oanyu" path="res://assets/71-unintended-consequences.png" id="5_jwkcn"]
+
+[node name="startgame" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_lw6q1")
+
+[node name="Purple" type="Sprite2D" parent="."]
+position = Vector2(582, 336)
+scale = Vector2(18.4766, 10.8047)
+texture = ExtResource("1_i0xnx")
+
+[node name="title" type="Label" parent="."]
+offset_left = 437.0
+offset_top = 30.0
+offset_right = 677.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_11las")
+theme_override_font_sizes/font_size = 40
+text = "Recoil"
+
+[node name="start" type="Button" parent="."]
+offset_left = 494.0
+offset_top = 350.0
+offset_right = 652.0
+offset_bottom = 388.0
+theme = ExtResource("4_hw00m")
+theme_override_fonts/font = ExtResource("2_11las")
+theme_override_font_sizes/font_size = 30
+text = "Start"
+
+[node name="gwj disclaimer" type="Label" parent="."]
+offset_left = 263.0
+offset_top = 109.0
+offset_right = 843.0
+offset_bottom = 132.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_11las")
+theme_override_font_sizes/font_size = 20
+text = "This game was made for GWJ 71"
+
+[node name="71-unintended-consequences" type="Sprite2D" parent="."]
+position = Vector2(577, 248)
+scale = Vector2(0.237662, 0.237662)
+texture = ExtResource("5_jwkcn")
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]

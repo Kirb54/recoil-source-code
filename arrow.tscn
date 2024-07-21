@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmk4medeeuirt"]
+
+[ext_resource type="Script" path="res://arrow.gd" id="1_56hu7"]
+[ext_resource type="Texture2D" uid="uid://bo2c2t2weqyla" path="res://assets/uparrow.png" id="2_riwgm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1mscg"]
+size = Vector2(1, 36)
+
+[sub_resource type="Curve" id="Curve_vn7fb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.865169, 0.538462), 0.0, 0.0, 0, 0, Vector2(1, 0.175824), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="arrow" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_56hu7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_riwgm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_1mscg")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 24
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 900)
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+scale_amount_min = 8.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_vn7fb")
+color = Color(0.639216, 0.00392157, 0, 1)
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]

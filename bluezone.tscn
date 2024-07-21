@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc1fnt0074cfc"]
+
+[ext_resource type="Script" path="res://bluezone.gd" id="1_dydny"]
+[ext_resource type="Texture2D" uid="uid://d3klt77bnxvyq" path="res://assets/bluezone.png" id="1_mq006"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvslu"]
+size = Vector2(40, 40)
+
+[node name="bluezone" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_dydny")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cvslu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mq006")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
